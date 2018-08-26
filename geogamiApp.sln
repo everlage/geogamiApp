@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio for Mac
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geogamiApp", "Assembly-CSharp.csproj", "{89B72339-AEFF-029A-E945-D676D2911EBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geogamiApp", "Assembly-CSharp-Editor.csproj", "{F57C4B7B-0D36-F44F-083B-1A00C9BB7E1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89B72339-AEFF-029A-E945-D676D2911EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B72339-AEFF-029A-E945-D676D2911EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B72339-AEFF-029A-E945-D676D2911EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B72339-AEFF-029A-E945-D676D2911EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F57C4B7B-0D36-F44F-083B-1A00C9BB7E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F57C4B7B-0D36-F44F-083B-1A00C9BB7E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F57C4B7B-0D36-F44F-083B-1A00C9BB7E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F57C4B7B-0D36-F44F-083B-1A00C9BB7E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

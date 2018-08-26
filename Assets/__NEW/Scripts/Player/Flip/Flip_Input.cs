@@ -57,15 +57,12 @@ public class Flip_Input : MonoBehaviour {
         {
             Debug.Log("Swipe: " + swipeDirection);
 
-            GetComponent<Flip_Manager>().attemptToFlip(swipeDirection);
+            //GetComponent<Flip_Manager>().attemptToFlip(swipeDirection);
         }
 
 
     }
 
-    public void mouseClicked()
-    {
-        // TODO - Mouse Click when shape is selected
-        Debug.Log("mouseClicked: TODO");
-    }
+
+   
 }

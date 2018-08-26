@@ -32,6 +32,8 @@ public class Flip_Calc : MonoBehaviour
         return signedAngleTo360(vert2Angle);
     }
 
+   
+
     public float signedAngleTo360(float angle)
     {
         if(angle < 0)
@@ -46,6 +48,10 @@ public class Flip_Calc : MonoBehaviour
         return angle;
     }
 
+    public bool angleIsWithin(float a, float min, float max)
+    {
+        return min <= a && a < max;
+    }
 
 
     //// ####################

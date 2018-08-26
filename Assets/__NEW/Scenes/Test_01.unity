@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 98291372}
   m_Layer: 0
   m_Name: vert (1)
-  m_TagString: Untagged
+  m_TagString: VertexOuter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 755679923}
   m_Layer: 0
   m_Name: vert (3)
-  m_TagString: Untagged
+  m_TagString: VertexOuter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 790276827}
   m_Layer: 0
   m_Name: vert (4)
-  m_TagString: Untagged
+  m_TagString: VertexOuter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 1089548486}
   - component: {fileID: 1089548485}
   - component: {fileID: 1089548488}
+  - component: {fileID: 1089548489}
   m_Layer: 0
   m_Name: ghost (4)
   m_TagString: Untagged
@@ -555,9 +556,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verts:
-  - {fileID: 98291371}
-  - {fileID: 790276826}
+--- !u!114 &1089548489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089548483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertMin: {fileID: 790276826}
+  vertMax: {fileID: 98291371}
 --- !u!1 &1164656293
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +581,7 @@ GameObject:
   - component: {fileID: 1164656297}
   - component: {fileID: 1164656296}
   - component: {fileID: 1164656295}
+  - component: {fileID: 1164656299}
   m_Layer: 0
   m_Name: ghost (3)
   m_TagString: Untagged
@@ -601,9 +613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verts:
-  - {fileID: 790276826}
-  - {fileID: 755679922}
 --- !u!65 &1164656296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -658,6 +667,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1164656293}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1164656299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164656293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertMin: {fileID: 755679922}
+  vertMax: {fileID: 790276826}
 --- !u!1 &1277399137
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +829,7 @@ GameObject:
   - component: {fileID: 1533080751}
   m_Layer: 0
   m_Name: vert (2)
-  m_TagString: Untagged
+  m_TagString: VertexOuter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,6 +871,7 @@ GameObject:
   - component: {fileID: 1572945516}
   - component: {fileID: 1572945515}
   - component: {fileID: 1572945514}
+  - component: {fileID: 1572945518}
   m_Layer: 0
   m_Name: ghost (2)
   m_TagString: Untagged
@@ -880,9 +903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verts:
-  - {fileID: 755679922}
-  - {fileID: 1533080750}
 --- !u!65 &1572945515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -937,6 +957,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1572945512}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1572945518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572945512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertMin: {fileID: 1533080750}
+  vertMax: {fileID: 755679922}
 --- !u!1 &1593800838
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1014,7 @@ GameObject:
   - component: {fileID: 1662198301}
   - component: {fileID: 1662198300}
   - component: {fileID: 1662198299}
+  - component: {fileID: 1662198303}
   m_Layer: 0
   m_Name: ghost (1)
   m_TagString: Untagged
@@ -1012,9 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verts:
-  - {fileID: 1533080750}
-  - {fileID: 98291371}
 --- !u!65 &1662198300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1069,6 +1100,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1662198297}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1662198303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1662198297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertMin: {fileID: 98291371}
+  vertMax: {fileID: 1533080750}
 --- !u!1 &1881267763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,11 +1220,10 @@ MonoBehaviour:
   flip_Calc: {fileID: 1881267773}
   vertices:
   - {fileID: 98291371}
-  - {fileID: 790276826}
-  - {fileID: 755679922}
   - {fileID: 1533080750}
+  - {fileID: 755679922}
+  - {fileID: 790276826}
   localPlusZ: {fileID: 1030997946}
-  angleZones: []
 --- !u!114 &1881267769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1275,10 @@ MonoBehaviour:
   flip_Input: {fileID: 1881267771}
   flip_Animation: {fileID: 1881267769}
   vertTracker: {fileID: 1881267768}
+  angleZoneGOs: []
+  angleZoneGO: {fileID: 0}
+  angleZoneGOScript: {fileID: 0}
+  mousePos: {x: 0, y: 0, z: 0}
 --- !u!114 &1881267773
 MonoBehaviour:
   m_ObjectHideFlags: 0

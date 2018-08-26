@@ -15,6 +15,7 @@ TagManager:
   - Outline
   - PlayerGhost
   - Shadow
+  - VertexOuter
   layers:
   - Default
   - TransparentFX
