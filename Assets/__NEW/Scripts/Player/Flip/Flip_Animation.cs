@@ -13,7 +13,6 @@ public class Flip_Animation : MonoBehaviour {
     int[] validRotationAngles = new int[17]; //TODO
 
     bool rotating;
-    int rotationTracker = 0;
     Vector3 rotationPoint;
     Vector3 rotationAxis;
     int rotationSign = 1;
@@ -42,47 +41,40 @@ public class Flip_Animation : MonoBehaviour {
 
         flipSpeed = validRotationAngles[flipSpeedIndex];
 	}
-	
-
-    void Update()
-    {
-        if (rotating)
-        {
-
-            rotateStep();
-
-        }
-    }
-
-    void rotateStep()
-    {
-
-        transform.RotateAround(rotationPoint, rotationAxis, rotationSign * flipSpeed);
-        rotationTracker += flipSpeed;
-
-        if (rotationTracker >= 180)
-        {  // 180 degree flip
-            rotationTracker = 0;
-            rotating = false;
-       
-
-            // Create paint trail in new location
-            //paintTrailScript.instantiatePaintTrail(); 
-        }
-
-
-
-    }
 
 
     public void flipShape(GameObject ghostToFlipTo)
     {
+
+        if(rotating)
+        {
+            return;
+        }
+
         AngleZone ghostAngleZoneScript = ghostToFlipTo.GetComponent<AngleZone>(); // Use this to get verts for axis of rotation
         rotationPoint = ghostAngleZoneScript.vertMin.position;
         rotationAxis = ghostAngleZoneScript.vertMax.position - rotationPoint;
 
-        rotationTracker = 0;
+        Debug.Log("flipShape");
+
+
+        StartCoroutine("rotateShape", 180);
+
+    }
+
+    IEnumerator rotateShape(int angle) 
+    {
         rotating = true;
+
+        for (int i = 0; i < angle; i += flipSpeed)
+        {
+            transform.RotateAround(rotationPoint, rotationAxis, flipSpeed * rotationSign);
+            yield return null;
+        }
+
+        // TODO: Fix  drift in x,y,z?
+
+        rotating = false;
     }
 	
 
