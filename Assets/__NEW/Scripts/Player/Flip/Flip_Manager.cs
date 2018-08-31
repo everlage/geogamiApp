@@ -42,7 +42,7 @@ public class Flip_Manager : MonoBehaviour {
        
         updateCurrentAngleZone();
 
-        Debug.Log("stillInCurrentAngleZone? " + stillInCurrentAngleZone());
+        //Debug.Log("stillInCurrentAngleZone? " + stillInCurrentAngleZone());
         if( !stillInCurrentAngleZone() )
             updateCurrentAngleZone();
 
@@ -52,12 +52,17 @@ public class Flip_Manager : MonoBehaviour {
 
     public void mouseClicked()
     {
-        // TODO - Mouse Click when shape is selected
+        // Mouse Click when shape is selected
+        updateCurrentAngleZone();
 
-        // TEMP
-        mouseMoved();
-
-            
+        if (angleZoneGOScript.isLegalMove())
+        {
+            moveShapeToCurrentGhost();
+        }
+        else
+        {
+            startIllegalMoveAnimation();
+        }
     }
 
     // Returns true if mouse is still in currently saved angle zone 
@@ -68,19 +73,19 @@ public class Flip_Manager : MonoBehaviour {
         // Get mouse position
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Debug.Log("vertTracker " + vertTracker);
-        Debug.Log("angleZoneGOScript" + angleZoneGOScript);
-        Debug.Log("mousePosInWorld" + mousePosInWorld);
-        Debug.Log("vertMin" + angleZoneGOScript.vertMin);
-        Debug.Log("vertMax" + angleZoneGOScript.vertMax);
-        Debug.Log("stillInCurrentAngleZone? " + vertTracker.isSwipeDirectionInZone(mousePosInWorld, angleZoneGOScript.vertMin, angleZoneGOScript.vertMax) );
+        //Debug.Log("vertTracker " + vertTracker);
+        //Debug.Log("angleZoneGOScript" + angleZoneGOScript);
+        //Debug.Log("mousePosInWorld" + mousePosInWorld);
+        //Debug.Log("vertMin" + angleZoneGOScript.vertMin);
+        //Debug.Log("vertMax" + angleZoneGOScript.vertMax);
+        //Debug.Log("stillInCurrentAngleZone? " + vertTracker.isSwipeDirectionInZone(mousePosInWorld, angleZoneGOScript.vertMin, angleZoneGOScript.vertMax) );
 
         return vertTracker.isSwipeDirectionInZone(mousePosInWorld, angleZoneGOScript.vertMin, angleZoneGOScript.vertMax);
     }
 
     public void updateCurrentAngleZone()
     {
-        Debug.Log("updateCurrentAngleZone");
+        //Debug.Log("updateCurrentAngleZone");
 
 
 
@@ -104,12 +109,12 @@ public class Flip_Manager : MonoBehaviour {
             //TODO if zone is enabled and correct direction
             if(vertTracker.isSwipeDirectionInZone(mousePosInWorld, goScript.vertMin, goScript.vertMax))
             {
-                Debug.Log("Found new angleZone!");
+                //Debug.Log("Found new angleZone!");
                 angleZoneGO = go;
                 angleZoneGOScript = angleZoneGO.GetComponent<AngleZone>();
                 angleZoneGOScript.enterZone();
 
-                Debug.Log("================================= ");
+                //Debug.Log("================================= ");
                 //Debug.Log("NEW angleZoneGO; " + angleZoneGO);
                 break;
             }
@@ -121,10 +126,21 @@ public class Flip_Manager : MonoBehaviour {
     }
 
 
-    //public void attemptToFlip(Vector3 swipeDirection)
-    //{
-    //    Debug.Log("attemptToFlip: " + swipeDirection);
+    public void moveShapeToCurrentGhost()
+    {
+        
+        angleZoneGOScript.exitZone();
+        // TODO FLIP SHAPE
 
+        flip_Animation.flipShape(angleZoneGO );
+                      
 
-    //}
+    }
+
+    public void startIllegalMoveAnimation()
+    {
+        
+        angleZoneGOScript.startIllegalMoveAnimation();
+
+    }
 }

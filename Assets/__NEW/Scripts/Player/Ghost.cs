@@ -6,7 +6,7 @@ public class Ghost : MonoBehaviour {
 
     public AngleZone angleZoneScript;
 
-    bool legalMove;
+    public bool legalMove;
 
     void Start()
     {
@@ -50,6 +50,7 @@ public class Ghost : MonoBehaviour {
     {
         //TODO
     }
+
 
     public void prepareForFlip()
     {

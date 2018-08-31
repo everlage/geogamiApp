@@ -6,11 +6,18 @@ public class Flip_Animation : MonoBehaviour {
 
 
 
-    [Tooltip("Speed of flip, 0-15")]
+    [Tooltip("Speed of flip, 0-16")]
     public int flipSpeedIndex = 10;
-    public int flipAngleSpeed;
 
-    public int[] validRotationAngles = new int[17]; //TODO
+    int flipSpeed;
+    int[] validRotationAngles = new int[17]; //TODO
+
+    bool rotating;
+    int rotationTracker = 0;
+    Vector3 rotationPoint;
+    Vector3 rotationAxis;
+    int rotationSign = 1;
+
 
 	// Use this for initialization
 	void Start () {
@@ -33,11 +40,50 @@ public class Flip_Animation : MonoBehaviour {
         validRotationAngles[15] = 40;
         validRotationAngles[16] = 60;
 
-        flipAngleSpeed = validRotationAngles[flipSpeedIndex];
+        flipSpeed = validRotationAngles[flipSpeedIndex];
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void Update()
+    {
+        if (rotating)
+        {
+
+            rotateStep();
+
+        }
+    }
+
+    void rotateStep()
+    {
+
+        transform.RotateAround(rotationPoint, rotationAxis, rotationSign * flipSpeed);
+        rotationTracker += flipSpeed;
+
+        if (rotationTracker >= 180)
+        {  // 180 degree flip
+            rotationTracker = 0;
+            rotating = false;
+       
+
+            // Create paint trail in new location
+            //paintTrailScript.instantiatePaintTrail(); 
+        }
+
+
+
+    }
+
+
+    public void flipShape(GameObject ghostToFlipTo)
+    {
+        AngleZone ghostAngleZoneScript = ghostToFlipTo.GetComponent<AngleZone>(); // Use this to get verts for axis of rotation
+        rotationPoint = ghostAngleZoneScript.vertMin.position;
+        rotationAxis = ghostAngleZoneScript.vertMax.position - rotationPoint;
+
+        rotationTracker = 0;
+        rotating = true;
+    }
+	
+
 }

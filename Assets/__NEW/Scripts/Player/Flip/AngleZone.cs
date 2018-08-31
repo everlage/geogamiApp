@@ -13,6 +13,16 @@ public class AngleZone : MonoBehaviour {
     // This is an on/off switch for disabling a zone under special circumstances, e.g. teleportation
     public bool zone_enabled = true;
 
+    public void enableZone()
+    {
+        zone_enabled = true;
+    }
+
+    public void disableZone()
+    {
+        zone_enabled = false;
+    }
+
 
 
     public void enterZone()
@@ -29,15 +39,21 @@ public class AngleZone : MonoBehaviour {
 
 
 
-    public void enableZone()
+
+    public bool isLegalMove()
     {
-        zone_enabled = true;
+        return ghostScript.legalMove;
+
     }
 
-    public void disableZone()
+    public void startIllegalMoveAnimation()
     {
-        zone_enabled = false;
+        // TODO
+
+        Debug.Log("ILLEGAL MOVE");
+
     }
+
 
 
 }

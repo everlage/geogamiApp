@@ -1290,8 +1290,8 @@ MonoBehaviour:
   angleZoneGOs:
   - {fileID: 1662198297}
   - {fileID: 1572945512}
-  - {fileID: 1089548483}
   - {fileID: 1164656293}
+  - {fileID: 1089548483}
   angleZoneGO: {fileID: 0}
   angleZoneGOScript: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
