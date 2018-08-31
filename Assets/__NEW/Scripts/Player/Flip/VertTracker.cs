@@ -23,9 +23,15 @@ public class VertTracker: MonoBehaviour
         float minAngle = flip_Calc.angleBetweenVerts(vertices[0].position, vertex1.position, localPlusZ.position);
         float maxAngle = flip_Calc.angleBetweenVerts(vertices[0].position, vertex2.position, localPlusZ.position);
 
-        float swipeAngle = flip_Calc.angleBetweenVerts(userInputPosition, vertex2.position, localPlusZ.position);
+        float swipeAngle = flip_Calc.angleBetweenVerts(vertices[0].position, userInputPosition, localPlusZ.position);
 
-
+        Debug.Log("---------- ");
+        Debug.Log("isSwipeDirectionInZone ? " );
+        Debug.Log("MinAngle " + minAngle);
+        Debug.Log("MaxAngle " + maxAngle);
+        Debug.Log("swipeAngle " + swipeAngle);
+        Debug.Log("angleIsWithin " + flip_Calc.angleIsWithin(swipeAngle, minAngle, maxAngle));
+        Debug.Log("---------- ");
 
         return flip_Calc.angleIsWithin(swipeAngle, minAngle, maxAngle);
 

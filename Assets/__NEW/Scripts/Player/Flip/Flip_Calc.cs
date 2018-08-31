@@ -48,8 +48,13 @@ public class Flip_Calc : MonoBehaviour
         return angle;
     }
 
-    public bool angleIsWithin(float a, float min, float max)
+    public bool angleIsWithin(float a, float min, float max) // Angle in degrees
     {
+        if (max < min)
+        {
+            max += 360;
+        }
+
         return min <= a && a < max;
     }
 

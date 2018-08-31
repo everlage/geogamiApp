@@ -440,7 +440,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1030997945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -50}
+  m_LocalPosition: {x: 0, y: 0, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1346325131}
@@ -477,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1089548484
 Transform:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1089548483}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -556,6 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleZoneScript: {fileID: 1089548489}
 --- !u!114 &1089548489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,8 +568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostScript: {fileID: 1089548488}
   vertMin: {fileID: 790276826}
   vertMax: {fileID: 98291371}
+  zone_enabled: 1
 --- !u!1 &1164656293
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1164656294
 Transform:
   m_ObjectHideFlags: 0
@@ -613,6 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleZoneScript: {fileID: 1164656299}
 --- !u!65 &1164656296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -631,7 +635,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1164656293}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -678,8 +682,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostScript: {fileID: 1164656295}
   vertMin: {fileID: 755679922}
   vertMax: {fileID: 790276826}
+  zone_enabled: 1
 --- !u!1 &1277399137
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1572945513
 Transform:
   m_ObjectHideFlags: 0
@@ -903,6 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleZoneScript: {fileID: 1572945518}
 --- !u!65 &1572945515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -921,7 +928,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1572945512}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -968,8 +975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostScript: {fileID: 1572945514}
   vertMin: {fileID: 1533080750}
   vertMax: {fileID: 755679922}
+  zone_enabled: 1
 --- !u!1 &1593800838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1662198298
 Transform:
   m_ObjectHideFlags: 0
@@ -1046,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782664d8227a4a558a990d8828d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleZoneScript: {fileID: 1662198303}
 --- !u!65 &1662198300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1064,7 +1074,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1662198297}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1111,8 +1121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1985e2330465439dabe6f3efab3815f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostScript: {fileID: 1662198299}
   vertMin: {fileID: 98291371}
   vertMax: {fileID: 1533080750}
+  zone_enabled: 1
 --- !u!1 &1881267763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1287,11 @@ MonoBehaviour:
   flip_Input: {fileID: 1881267771}
   flip_Animation: {fileID: 1881267769}
   vertTracker: {fileID: 1881267768}
-  angleZoneGOs: []
+  angleZoneGOs:
+  - {fileID: 1662198297}
+  - {fileID: 1572945512}
+  - {fileID: 1089548483}
+  - {fileID: 1164656293}
   angleZoneGO: {fileID: 0}
   angleZoneGOScript: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
