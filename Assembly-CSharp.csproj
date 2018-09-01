@@ -59,16 +59,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\__NEW\Scripts\EventManager2.cs" />
+    <Compile Include="Assets\__NEW\Scripts\GameManager.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\AngleZone.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\Flip_180.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\Flip_Animation.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\Flip_Calc.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\Flip_Input.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\Flip_Manager.cs" />
+    <Compile Include="Assets\__NEW\Scripts\Player\Flip\Ghost.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\Vert.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\VertTracker.cs" />
-    <Compile Include="Assets\__NEW\Scripts\Player\Ghost.cs" />
+    <Compile Include="Assets\__NEW\Scripts\Player\Portals\Portal.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Level Builder\_Containers\BarrierContainer.cs" />

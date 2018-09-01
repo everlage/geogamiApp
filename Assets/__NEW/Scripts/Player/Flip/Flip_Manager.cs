@@ -17,6 +17,23 @@ public class Flip_Manager : MonoBehaviour {
 
     public Vector3 mousePos;
 
+    public void initializeAll()
+    {
+        foreach (GameObject go in angleZoneGOs)
+        {
+            //Debug.Log("foreach Loop");
+
+            Ghost goScript = go.GetComponent<Ghost>();
+            if(goScript)
+            {
+                goScript.initialize();
+            }
+                
+
+
+        }
+    }
+
 	void Update () {
         if(Input.GetMouseButtonDown(0))
         {

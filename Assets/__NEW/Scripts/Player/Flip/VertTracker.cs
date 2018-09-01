@@ -11,10 +11,6 @@ public class VertTracker: MonoBehaviour
     public Transform localPlusZ;
 
 
-    void Start()
-    {
-        
-    }
 
 
     public bool isSwipeDirectionInZone(Vector3 userInputPosition, Transform vertex1, Transform vertex2)

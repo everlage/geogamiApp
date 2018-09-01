@@ -9,6 +9,9 @@ public class Flip_Animation : MonoBehaviour {
     [Tooltip("Speed of flip, 0-16")]
     public int flipSpeedIndex = 10;
 
+    [Tooltip("If shape transform will always be on an integer gridpoint, this will round transform.position x,y,z to prevent drift (use for squares, rectangles, 45 deg angles, etc.)")]
+    public bool roundFloatingPointToGridPoint;
+
     int flipSpeed;
     int[] validRotationAngles = new int[17]; //TODO
 
@@ -72,10 +75,29 @@ public class Flip_Animation : MonoBehaviour {
             yield return null;
         }
 
-        // TODO: Fix  drift in x,y,z?
+        fixDrift(); // Fix floating point errors caused by rotation
 
         rotating = false;
     }
 	
+
+    public void fixDrift()
+    {
+        //If should be on a gridpoint (squares, rectangles, etc.), round x and y to nearest number
+
+        if (roundFloatingPointToGridPoint)
+        {
+            //Round all position floats to int values
+            Vector3 tempV3 = transform.position;
+            tempV3.x = Mathf.Round(tempV3.x);
+            tempV3.y = Mathf.Round(tempV3.y);
+            tempV3.z = Mathf.Round(tempV3.z);
+            transform.position = tempV3;
+        }
+
+
+
+
+    }
 
 }
