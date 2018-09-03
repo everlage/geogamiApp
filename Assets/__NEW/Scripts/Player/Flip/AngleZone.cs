@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AngleZone : MonoBehaviour {
 
-    public Ghost ghostScript;
+
 
     // Vertices associated with this ghost
     public Transform vertMin;
@@ -42,15 +42,32 @@ public class AngleZone : MonoBehaviour {
 
     public bool isLegalMove()
     {
-        return ghostScript.legalMove;
+       
+
+
+        Ghost ghost = gameObject.GetComponent<Ghost>();
+
+        if (ghost != null)
+        {
+            return ghost.isLegalMove();
+        }
+        else
+        {
+            Debug.Log("ERROR: No ghost component found");
+            //TODO implement for other game objects that could be angle zones
+            return false;
+        }
+
 
     }
 
     public void startIllegalMoveAnimation()
     {
-        // TODO
-
+        
         Debug.Log("ILLEGAL MOVE");
+
+        Ghost ghost = gameObject.GetComponent<Ghost>();
+        ghost.runIllegalFlipAnimation();
 
     }
 

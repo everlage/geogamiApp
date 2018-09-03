@@ -6,51 +6,56 @@ public class Ghost : MonoBehaviour {
 
     public AngleZone angleZoneScript;
 
-    public bool legalMove;
 
-    public void initialize()
+
+    bool legalMove;
+    bool runningAnimation;
+
+    Material ghostMatLegal;
+    Material ghostMatNotLegal;
+
+    Animator anim;
+
+
+    void Start()
     {
-
-        checkIfThisGhostIsLegalMove();
+        anim = GetComponent<Animator>();
     }
 
 
-    public void checkIfThisGhostIsLegalMove()
+    public void initialize(Material legalMat, Material notLegalMat)
+    {
+        ghostMatLegal = legalMat;
+        ghostMatNotLegal = notLegalMat;
+
+        resetBarrierDetection();
+    }
+
+
+
+
+
+    public bool isLegalMove()
     {
 
-        // TODO
-
-        if(true)
-        {
-            // This move is legal
-            legalMove = true;
-            angleZoneScript.enableZone();
+        return legalMove;
+    }
 
 
-        }
-        else
-        {
-            //This move is illegal
-            legalMove = false;
-            angleZoneScript.disableZone();
 
+    public void hitBarrier()
+    {
 
-        }
-
+        legalMove = false;
         updateMyMaterial();
     }
 
-
-    public void updateMyMaterial()
+    public void resetBarrierDetection()
     {
-        // TODO
-    }
 
-    public void showIllegalFlipAnimation()
-    {
-        //TODO
+        legalMove = true;
+        updateMyMaterial();
     }
-
 
     public void prepareForFlip()
     {
@@ -58,4 +63,47 @@ public class Ghost : MonoBehaviour {
 
         angleZoneScript.exitZone();
     }
+
+
+    // Materials and Animation
+
+    public void updateMyMaterial()
+    {
+        // TODO
+        if(legalMove)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = ghostMatLegal;
+        }
+        else
+        {
+            gameObject.GetComponent<MeshRenderer>().material = ghostMatNotLegal;
+        }
+    }
+
+    public void runIllegalFlipAnimation()
+    {
+        //TODO
+
+        Debug.Log("runIllegalFlipAnimation");
+        //StartCoroutine("illigalFlipAnimation");
+
+        anim.Play("Ghost_Illegal_Flip"); //SetTrigger("Illegal Move");
+    }
+
+    //IEnumerator illigalFlipAnimation()
+    //{
+        //runningAnimation = true;
+
+        //for (int i = 0; i < angle; i += flipSpeed)
+        //{
+        //    transform.RotateAround(rotationPoint, rotationAxis, flipSpeed * rotationSign);
+        //    yield return null;
+        //}
+
+        //fixDrift(); // Fix floating point errors caused by rotation
+
+        //rotating = false;
+    //}
+
+
 }

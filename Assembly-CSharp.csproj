@@ -70,6 +70,9 @@
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\Vert.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Flip\VertTracker.cs" />
     <Compile Include="Assets\__NEW\Scripts\Player\Portals\Portal.cs" />
+    <Compile Include="Assets\__NEW\Scripts\Tokens and Barriers\Barrier2.cs" />
+    <Compile Include="Assets\__NEW\Scripts\Tokens and Barriers\Token2.cs" />
+    <Compile Include="Assets\__NEW\Scripts\Tokens and Barriers\TokenTracker2.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Level Builder\_Containers\BarrierContainer.cs" />

@@ -15,7 +15,8 @@ public class Flip_Manager : MonoBehaviour {
     public AngleZone angleZoneGOScript;
     // ----------
 
-    public Vector3 mousePos;
+    public Material ghostMatLegal;
+    public Material ghostMatNotLegal;
 
     public void initializeAll()
     {
@@ -26,7 +27,7 @@ public class Flip_Manager : MonoBehaviour {
             Ghost goScript = go.GetComponent<Ghost>();
             if(goScript)
             {
-                goScript.initialize();
+                goScript.initialize(ghostMatLegal, ghostMatNotLegal);
             }
                 
 
