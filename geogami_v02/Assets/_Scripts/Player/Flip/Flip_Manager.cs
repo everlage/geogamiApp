@@ -22,16 +22,11 @@ public class Flip_Manager : MonoBehaviour {
     {
         foreach (GameObject go in angleZoneGOs)
         {
-            //Debug.Log("foreach Loop");
-
             Ghost goScript = go.GetComponent<Ghost>();
             if(goScript)
             {
                 goScript.initialize(ghostMatLegal, ghostMatNotLegal);
             }
-                
-
-
         }
     }
 
@@ -153,6 +148,18 @@ public class Flip_Manager : MonoBehaviour {
         flip_Animation.flipShape(angleZoneGO );
                       
 
+    }
+
+    public void flipCompleted()
+    {
+        foreach (GameObject go in angleZoneGOs)
+        {
+            AngleZone goScript = go.GetComponent<AngleZone>();
+            if (goScript)
+            {
+                goScript.resetAngleZone();
+            }
+        }
     }
 
     public void startIllegalMoveAnimation()

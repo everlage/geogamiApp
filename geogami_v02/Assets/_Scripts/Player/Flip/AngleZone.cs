@@ -61,6 +61,27 @@ public class AngleZone : MonoBehaviour {
 
     }
 
+    public void resetAngleZone()
+    {
+
+
+
+        Ghost ghost = gameObject.GetComponent<Ghost>();
+
+        if (ghost != null)
+        {
+            ghost.resetBarrierDetection();
+        }
+        else
+        {
+            Debug.Log("ERROR: No ghost component found");
+            //TODO implement for other game objects that could be angle zones
+
+        }
+
+
+    }
+
     public void startIllegalMoveAnimation()
     {
         

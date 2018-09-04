@@ -622,6 +622,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114968927225068352, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: flipManagerScript
+      value: 
+      objectReference: {fileID: 1881267772}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1, type: 2}
   m_IsPrefabParent: 0
@@ -1004,7 +1009,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4271730277848918, guid: 9de0bca7840734125a5145989f3a8737, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4271730277848918, guid: 9de0bca7840734125a5145989f3a8737, type: 2}
       propertyPath: m_LocalPosition.x

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flip_Animation : MonoBehaviour {
 
 
+    public Flip_Manager flipManagerScript;
 
     [Tooltip("Speed of flip, 0-16")]
     public int flipSpeedIndex = 10;
@@ -75,9 +76,14 @@ public class Flip_Animation : MonoBehaviour {
             yield return null;
         }
 
-        fixDrift(); // Fix floating point errors caused by rotation
-
+        flipCompleted();
         rotating = false;
+    }
+
+    public void flipCompleted()
+    {
+        fixDrift(); // Fix floating point errors caused by rotation
+        flipManagerScript.flipCompleted();
     }
 	
 
@@ -95,9 +101,8 @@ public class Flip_Animation : MonoBehaviour {
             transform.position = tempV3;
         }
 
-
-
-
     }
+
+
 
 }
