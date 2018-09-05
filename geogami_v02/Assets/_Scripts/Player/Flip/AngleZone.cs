@@ -28,13 +28,13 @@ public class AngleZone : MonoBehaviour {
     public void enterZone()
     {
         // TODO replace this with call to Ghost/Teleporter etc.
-        gameObject.SetActive(true);
+        gameObject.GetComponent<MeshRenderer>().enabled = true; 
     }
 
     public void exitZone()
     {
         // TODO replace this with call to Ghost/Teleporter etc.
-        gameObject.SetActive(false);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
 

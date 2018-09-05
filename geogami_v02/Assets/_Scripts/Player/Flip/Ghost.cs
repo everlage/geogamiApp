@@ -7,6 +7,11 @@ public class Ghost : MonoBehaviour {
     public AngleZone angleZoneScript;
 
 
+    public int numberOfFadesIllegalFlipAnimation = 2;
+    public float fadeOutTime = 0.1f;
+    public float fadeInTime = 0.1f;
+    public float fadeOutAlpha = 0.5f;
+
 
     bool legalMove;
     bool runningAnimation;
@@ -14,13 +19,9 @@ public class Ghost : MonoBehaviour {
     Material ghostMatLegal;
     Material ghostMatNotLegal;
 
-    Animator anim;
 
 
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
+
 
 
     public void initialize(Material legalMat, Material notLegalMat)
@@ -29,6 +30,7 @@ public class Ghost : MonoBehaviour {
         ghostMatNotLegal = notLegalMat;
 
         resetBarrierDetection();
+        angleZoneScript.exitZone();
     }
 
 
@@ -85,25 +87,42 @@ public class Ghost : MonoBehaviour {
         //TODO
 
         Debug.Log("runIllegalFlipAnimation");
-        //StartCoroutine("illigalFlipAnimation");
+        StartCoroutine("illigalFlipAnimation");
 
-        anim.Play("Ghost_Illegal_Flip"); //SetTrigger("Illegal Move");
+        //anim.Play("Ghost_Illegal_Flip"); //SetTrigger("Illegal Move");
     }
 
-    //IEnumerator illigalFlipAnimation()
-    //{
-        //runningAnimation = true;
+    IEnumerator illigalFlipAnimation()
+    {
+        runningAnimation = true;
 
-        //for (int i = 0; i < angle; i += flipSpeed)
-        //{
-        //    transform.RotateAround(rotationPoint, rotationAxis, flipSpeed * rotationSign);
-        //    yield return null;
-        //}
+        float alphaOriginal = GetComponent<Renderer>().material.color.a;
+        Color newColor = GetComponent<Renderer>().material.color;
 
-        //fixDrift(); // Fix floating point errors caused by rotation
+        // Get material
+        // Record current alpha
 
-        //rotating = false;
-    //}
+        for (int n = 0; n < numberOfFadesIllegalFlipAnimation; n ++)
+        {
+            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / fadeOutTime)
+            {
+                newColor.a = Mathf.Lerp(alphaOriginal, fadeOutAlpha, t);
+                GetComponent<Renderer>().material.SetColor("_Color", newColor);
+                yield return null;
+            }
+
+            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / fadeInTime)
+            {
+                newColor.a = Mathf.Lerp(fadeOutAlpha, alphaOriginal, t);
+                GetComponent<Renderer>().material.SetColor("_Color", newColor);
+                yield return null;
+            }
+        }
+
+        runningAnimation = false;
+    }
+
+
 
 
 }

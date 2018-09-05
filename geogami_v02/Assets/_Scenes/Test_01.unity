@@ -622,11 +622,51 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114968927225068352, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+    - target: {fileID: 114523211398741892, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
         type: 2}
-      propertyPath: flipManagerScript
-      value: 
-      objectReference: {fileID: 1881267772}
+      propertyPath: fadeOutTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114523211398741892, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeInTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114523211398741892, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeOutAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114046911198031012, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeOutTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114046911198031012, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeInTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114046911198031012, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeOutAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460577654089968, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeOutTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460577654089968, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeInTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460577654089968, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1,
+        type: 2}
+      propertyPath: fadeOutAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab094a6d6a42e44b7a2c4a5b8e444ce1, type: 2}
   m_IsPrefabParent: 0
@@ -747,7 +787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &591946350
 Transform:
   m_ObjectHideFlags: 0

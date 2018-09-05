@@ -25,14 +25,13 @@ GameObject:
   - component: {fileID: 65839677219019998}
   - component: {fileID: 114523211398741892}
   - component: {fileID: 114322712448775298}
-  - component: {fileID: 95945907682662756}
   m_Layer: 0
   m_Name: Ghost (2)
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1030372906051392
 GameObject:
   m_ObjectHideFlags: 1
@@ -109,14 +108,13 @@ GameObject:
   - component: {fileID: 65222332187849576}
   - component: {fileID: 114451571353065804}
   - component: {fileID: 114799121921170136}
-  - component: {fileID: 95716590301895232}
   m_Layer: 0
   m_Name: Ghost (1)
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1510403105872320
 GameObject:
   m_ObjectHideFlags: 1
@@ -131,14 +129,13 @@ GameObject:
   - component: {fileID: 65930878131177804}
   - component: {fileID: 114046911198031012}
   - component: {fileID: 114733887222618672}
-  - component: {fileID: 95237485761592400}
   m_Layer: 0
   m_Name: Ghost (3)
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1596471043989626
 GameObject:
   m_ObjectHideFlags: 1
@@ -169,14 +166,13 @@ GameObject:
   - component: {fileID: 65305513642671816}
   - component: {fileID: 114460577654089968}
   - component: {fileID: 114448769922842052}
-  - component: {fileID: 95461044675122018}
   m_Layer: 0
   m_Name: Ghost (4)
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1730615842319358
 GameObject:
   m_ObjectHideFlags: 1
@@ -746,78 +742,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95237485761592400
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1510403105872320}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0931e9803fc347b7b2deb23e0fa7141, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95461044675122018
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1652011989076464}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0931e9803fc347b7b2deb23e0fa7141, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95716590301895232
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1384023075395010}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0931e9803fc347b7b2deb23e0fa7141, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95945907682662756
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008029403960310}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0931e9803fc347b7b2deb23e0fa7141, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114046911198031012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -830,6 +754,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleZoneScript: {fileID: 114733887222618672}
+  numberOfFadesIllegalFlipAnimation: 2
+  fadeOutTime: 0
+  fadeInTime: 0
+  fadeOutAlpha: 0
 --- !u!114 &114053517797127020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -928,6 +856,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleZoneScript: {fileID: 114799121921170136}
+  numberOfFadesIllegalFlipAnimation: 2
+  fadeOutTime: 0.1
+  fadeInTime: 0.1
+  fadeOutAlpha: 0.5
 --- !u!114 &114460577654089968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -940,6 +872,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleZoneScript: {fileID: 114448769922842052}
+  numberOfFadesIllegalFlipAnimation: 2
+  fadeOutTime: 0
+  fadeInTime: 0
+  fadeOutAlpha: 0
 --- !u!114 &114523211398741892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -952,6 +888,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleZoneScript: {fileID: 114322712448775298}
+  numberOfFadesIllegalFlipAnimation: 2
+  fadeOutTime: 0
+  fadeInTime: 0
+  fadeOutAlpha: 0
 --- !u!114 &114570838116534862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1068,5 +1008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d4888f8b77e442b8869a2ec5846e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipManagerScript: {fileID: 114589398525190588}
   flipSpeedIndex: 8
   roundFloatingPointToGridPoint: 1
