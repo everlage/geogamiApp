@@ -168,4 +168,49 @@ public class Flip_Manager : MonoBehaviour {
         angleZoneGOScript.startIllegalMoveAnimation();
 
     }
+
+
+    //-------------
+    // Portals
+    //-------------
+
+    public void enterPortal(GameObject portal, List<GameObject> connectedPortals, GameObject vertexTouchingPortal)
+    {
+        //TEMP
+        translateToPortal(vertexTouchingPortal, connectedPortals[0]);
+    }
+
+    public void exitPortal(GameObject portal, List<GameObject> connectedPortals)
+    {
+        
+    }
+
+    public void translateToPortal(GameObject vertex, GameObject portal)
+    {
+
+        // TODO
+
+        // ROTATE SO THAT angles are lined up with portal
+
+        // Look at of the vertex's "adjacent verts", select the correct one that corresponds to min angle CCW (to match with portal's minVert angle)
+        // Perhaps use plusZ to tell orientation, and convention for which vert is first?
+
+        if(vertTracker.localPlusZ.position.z > 0)
+        {
+            //vertex.getAdjacent(1);
+        }
+        else
+        {
+            //vertex.getAdjacent(-1);
+        }
+
+        // Compare angle (using GLOBAL RIGHT) between vertex / adjacent vert and portal / minVert
+        // Rotate shape around axis defined by vertex.
+
+
+        // TRANSLATE so that vertex transform is at portal transform
+
+
+    }
+
 }
