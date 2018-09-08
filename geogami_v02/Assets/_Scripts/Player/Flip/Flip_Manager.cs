@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flip_Manager : MonoBehaviour {
+public class Flip_Manager : MonoBehaviour
+{
 
     public Flip_180 flip_180;
     public Flip_Input flip_Input;
     public Flip_Animation flip_Animation;
     public VertTracker vertTracker;
 
- 
+
     // ---------- Angle Zones
     public List<GameObject> angleZoneGOs; // Objects that include angle zone information (normally ghosts)
     public GameObject angleZoneGO;
@@ -19,20 +20,28 @@ public class Flip_Manager : MonoBehaviour {
     public Material ghostMatLegal;
     public Material ghostMatNotLegal;
 
+    #region Initialize
+
     public void initializeAll()
     {
         foreach (GameObject go in angleZoneGOs)
         {
             Ghost goScript = go.GetComponent<Ghost>();
-            if(goScript)
+            if (goScript)
             {
                 goScript.initialize(ghostMatLegal, ghostMatNotLegal);
             }
         }
     }
 
-	void Update () {
-        if(Input.GetMouseButtonDown(0))
+    #endregion
+
+
+    #region Update
+
+    public void updateFlipManager()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("mouseClicked");
             mouseClicked();
@@ -48,16 +57,20 @@ public class Flip_Manager : MonoBehaviour {
             mouseMoved();
         }
 
-	}
+    }
 
+    #endregion
+
+
+    #region Angle Zones
 
     public void mouseMoved()
     {
-       
+
         updateCurrentAngleZone();
 
         //Debug.Log("stillInCurrentAngleZone? " + stillInCurrentAngleZone());
-        if( !stillInCurrentAngleZone() )
+        if (!stillInCurrentAngleZone())
             updateCurrentAngleZone();
 
 
@@ -82,7 +95,7 @@ public class Flip_Manager : MonoBehaviour {
     // Returns true if mouse is still in currently saved angle zone 
     public bool stillInCurrentAngleZone()
     {
-        
+
 
         // Get mouse position
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -109,7 +122,7 @@ public class Flip_Manager : MonoBehaviour {
             //Debug.Log("Old angleZoneGO; " + angleZoneGO);
             angleZoneGOScript.exitZone();
         }
-        
+
         // Get mouse position
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -121,7 +134,7 @@ public class Flip_Manager : MonoBehaviour {
             AngleZone goScript = go.GetComponent<AngleZone>();
 
             //TODO if zone is enabled and correct direction
-            if(vertTracker.isSwipeDirectionInZone(mousePosInWorld, goScript.vertMin, goScript.vertMax))
+            if (vertTracker.isSwipeDirectionInZone(mousePosInWorld, goScript.vertMin, goScript.vertMax))
             {
                 //Debug.Log("Found new angleZone!");
                 angleZoneGO = go;
@@ -142,12 +155,12 @@ public class Flip_Manager : MonoBehaviour {
 
     public void moveShapeToCurrentGhost()
     {
-        
+
         angleZoneGOScript.exitZone();
         // TODO FLIP SHAPE
 
-        flip_Animation.flipShape(angleZoneGO );
-                      
+        flip_Animation.flipShape(angleZoneGO);
+
 
     }
 
@@ -163,28 +176,47 @@ public class Flip_Manager : MonoBehaviour {
         }
     }
 
+    #endregion
+
+
+    #region Animation
+
     public void startIllegalMoveAnimation()
     {
-        
+
         angleZoneGOScript.startIllegalMoveAnimation();
 
     }
 
+    public void startTranslateMoveAnimation()
+    {
 
-    //-------------
-    // Portals
-    //-------------
+        angleZoneGOScript.startIllegalMoveAnimation();
+
+    }
+
+    #endregion
+
+
+    #region Portals
 
     public void enterPortal(GameObject portal, List<GameObject> connectedPortals, GameObject vertexTouchingPortal)
     {
         //TEMP
-        if (connectedPortals[0])
+        if (connectedPortals.Count > 1)
+        {
+            print("Too many portals");
+        }
+        else if (connectedPortals[0])
+        {
             translateToPortal(vertexTouchingPortal, connectedPortals[0]);
+        }
+
     }
 
     public void exitPortal(GameObject portal, List<GameObject> connectedPortals)
     {
-        
+
     }
 
     public void translateToPortal(GameObject vertex, GameObject portal)
@@ -196,12 +228,11 @@ public class Flip_Manager : MonoBehaviour {
         Portal portalScript = portal.GetComponent<Portal>();
 
 
-        // TODO
-
+        // ------
         // ROTATE SO THAT angles are lined up with portal
 
         // Look at of the vertex's "adjacent verts", select the correct one that corresponds to min angle CCW (to match with portal's minVert angle)
-        if(vertTracker.localPlusZ.position.z > 0)
+        if (vertTracker.localPlusZ.position.z > 0)
         {
             //vertex.getAdjacent(1);
             Debug.Log("position.z > 0");
@@ -233,11 +264,15 @@ public class Flip_Manager : MonoBehaviour {
         transform.RotateAround(vertex.transform.position, Vector3.back, (angleToPortVert - angleToAdjVert));
 
 
+        // ------
         // TRANSLATE so that vertex transform is at portal transform
 
 
         transform.Translate(portal.transform.position - vertex.transform.position, Space.World);
 
     }
+
+    #endregion
+
 
 }

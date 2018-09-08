@@ -24,28 +24,41 @@ public class Portal : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-
-
-        if (activePortal && other.gameObject.CompareTag("Vertex") && Mathf.Approximately(other.gameObject.GetComponent<Vert>().angle, myAngle) )
+        if (activePortal && other.gameObject.CompareTag("Vertex") )
         {
-            Debug.Log("activePortal");
-            Flip_Manager flipManagerScript = other.transform.parent.parent.GetComponent<Flip_Manager>();
-            flipManagerScript.enterPortal(gameObject, connectedPortals, other.gameObject);
-
+            enterMyPortal(other.gameObject);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("OnTriggerExit");
-
-        if (other.gameObject.CompareTag("Vertex") && Mathf.Approximately(other.gameObject.GetComponent<Vert>().angle, myAngle) )
+        if (other.gameObject.CompareTag("Vertex") )
         {
-
-            Flip_Manager flipManagerScript = other.transform.parent.parent.GetComponent<Flip_Manager>();
-            flipManagerScript.exitPortal(gameObject, connectedPortals);
-
+            exitMyPortal(other.gameObject);
         }
     }
+
+
+    void enterMyPortal(GameObject vertex)
+    {
+        if (Mathf.Approximately(vertex.GetComponent<Vert>().angle, myAngle))
+        {
+
+            Flip_Manager flipManagerScript = vertex.transform.parent.parent.GetComponent<Flip_Manager>();
+            flipManagerScript.enterPortal(gameObject, connectedPortals, vertex.gameObject);
+        }
+    }
+
+    void exitMyPortal(GameObject vertex)
+    {
+        if(Mathf.Approximately(vertex.GetComponent<Vert>().angle, myAngle) )
+        {
+            Flip_Manager flipManagerScript = vertex.transform.parent.parent.GetComponent<Flip_Manager>();
+            flipManagerScript.exitPortal(gameObject, connectedPortals);
+        }
+
+    }
+
+    // TODO: Add listener, when states have changed, call enterMyPortal and exitMyPortal again to renew ghosts
 
 }

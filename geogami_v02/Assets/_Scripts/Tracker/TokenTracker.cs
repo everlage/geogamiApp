@@ -6,12 +6,11 @@ public class TokenTracker : MonoBehaviour {
 
     bool levelComplete = false;
 	
-    void Update()
+    public void updateTracker()
     {
         if (transform.childCount < 1 && !levelComplete)
         {
             levelComplete = true;
-
 
             Debug.Log("LEVEL COMPLETE!");
             // TODO
