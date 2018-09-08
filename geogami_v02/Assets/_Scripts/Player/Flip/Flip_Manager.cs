@@ -9,6 +9,7 @@ public class Flip_Manager : MonoBehaviour {
     public Flip_Animation flip_Animation;
     public VertTracker vertTracker;
 
+ 
     // ---------- Angle Zones
     public List<GameObject> angleZoneGOs; // Objects that include angle zone information (normally ghosts)
     public GameObject angleZoneGO;
@@ -177,7 +178,8 @@ public class Flip_Manager : MonoBehaviour {
     public void enterPortal(GameObject portal, List<GameObject> connectedPortals, GameObject vertexTouchingPortal)
     {
         //TEMP
-        translateToPortal(vertexTouchingPortal, connectedPortals[0]);
+        if (connectedPortals[0])
+            translateToPortal(vertexTouchingPortal, connectedPortals[0]);
     }
 
     public void exitPortal(GameObject portal, List<GameObject> connectedPortals)
@@ -188,28 +190,53 @@ public class Flip_Manager : MonoBehaviour {
     public void translateToPortal(GameObject vertex, GameObject portal)
     {
 
+        Vert vertScript = vertex.GetComponent<Vert>();
+        Transform adjacentVert;
+
+        Portal portalScript = portal.GetComponent<Portal>();
+
+
         // TODO
 
         // ROTATE SO THAT angles are lined up with portal
 
         // Look at of the vertex's "adjacent verts", select the correct one that corresponds to min angle CCW (to match with portal's minVert angle)
-        // Perhaps use plusZ to tell orientation, and convention for which vert is first?
-
         if(vertTracker.localPlusZ.position.z > 0)
         {
             //vertex.getAdjacent(1);
+            Debug.Log("position.z > 0");
+            adjacentVert = vertScript.adjacentVerts[0];
+
         }
         else
         {
             //vertex.getAdjacent(-1);
+            Debug.Log("position.z < 0");
+            adjacentVert = vertScript.adjacentVerts[1];
         }
 
         // Compare angle (using GLOBAL RIGHT) between vertex / adjacent vert and portal / minVert
+        Vector3 directionToAdjVert = adjacentVert.position - vertex.transform.position;
+        directionToAdjVert.z = 0;
+        float angleToAdjVert = Vector3.Angle(directionToAdjVert, Vector3.right);
+
+        Debug.Log("Angle: " + angleToAdjVert);
+
+        Vector3 directionToPortalVertStart = portalScript.vertexStart.position - portal.transform.position;
+        directionToPortalVertStart.z = 0;
+        float angleToPortVert = Vector3.Angle(directionToPortalVertStart, Vector3.right);
+
+        Debug.Log("Angle: " + angleToPortVert);
+
         // Rotate shape around axis defined by vertex.
+
+        transform.RotateAround(vertex.transform.position, Vector3.back, (angleToPortVert - angleToAdjVert));
 
 
         // TRANSLATE so that vertex transform is at portal transform
 
+
+        transform.Translate(portal.transform.position - vertex.transform.position, Space.World);
 
     }
 

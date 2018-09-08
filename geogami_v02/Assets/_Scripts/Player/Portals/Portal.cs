@@ -25,9 +25,10 @@ public class Portal : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
 
+
         if (activePortal && other.gameObject.CompareTag("Vertex") && Mathf.Approximately(other.gameObject.GetComponent<Vert>().angle, myAngle) )
         {
-            
+            Debug.Log("activePortal");
             Flip_Manager flipManagerScript = other.transform.parent.parent.GetComponent<Flip_Manager>();
             flipManagerScript.enterPortal(gameObject, connectedPortals, other.gameObject);
 
@@ -36,11 +37,12 @@ public class Portal : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
+        Debug.Log("OnTriggerExit");
 
         if (other.gameObject.CompareTag("Vertex") && Mathf.Approximately(other.gameObject.GetComponent<Vert>().angle, myAngle) )
         {
 
-            Flip_Manager flipManagerScript = other.GetComponent<Flip_Manager>();
+            Flip_Manager flipManagerScript = other.transform.parent.parent.GetComponent<Flip_Manager>();
             flipManagerScript.exitPortal(gameObject, connectedPortals);
 
         }
