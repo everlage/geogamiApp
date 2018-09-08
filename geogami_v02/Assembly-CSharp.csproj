@@ -72,11 +72,11 @@
     <Compile Include="Assets\_Scripts\Player\Portals\Portal.cs" />
     <Compile Include="Assets\_Scripts\Tokens and Barriers\Barrier.cs" />
     <Compile Include="Assets\_Scripts\Tokens and Barriers\Token.cs" />
-    <Compile Include="Assets\_Scripts\Tracker\TokenTracker.cs" />
-    <Compile Include="Assets\BarrierTracker.cs" />
-    <Compile Include="Assets\PlatformTracker.cs" />
-    <Compile Include="Assets\PortalTracker.cs" />
-    <Compile Include="Assets\ShapeTracker.cs" />
+    <Compile Include="Assets\_Scripts\Trackers\BarrierTracker.cs" />
+    <Compile Include="Assets\_Scripts\Trackers\PlatformTracker.cs" />
+    <Compile Include="Assets\_Scripts\Trackers\PortalTracker.cs" />
+    <Compile Include="Assets\_Scripts\Trackers\ShapeTracker.cs" />
+    <Compile Include="Assets\_Scripts\Trackers\TokenTracker.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/erikverlage/Documents/GitHub/geogamiApp/geogami_v02/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
