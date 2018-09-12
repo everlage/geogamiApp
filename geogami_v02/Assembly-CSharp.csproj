@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\Platform\Paint.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\AngleZone.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\Flip_180.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\Flip_Animation.cs" />

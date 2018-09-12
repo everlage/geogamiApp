@@ -8,6 +8,7 @@ TagManager:
   - Barrier
   - Token
   - Ghost
+  - Paint
   layers:
   - Default
   - TransparentFX

@@ -17,9 +17,7 @@ public class GameManager : MonoBehaviour {
     public Flip_Manager selectedPlayerShapeFMScript;
 
     // ---------- Tokens
-    public List<GameObject> tokenGOs;
-    public Transform tokenTracker;
-    public TokenTracker tokenTrackerScript;
+    public TokenTracker tokenTracker;
 
     // ---------- Barriers
     public List<GameObject> barrierGOs; 
@@ -49,7 +47,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //initializeGameCore();
-        transferLevelToGameCore();
+        initializeLevelStructure();
         initializeAllLevelObjects();
 	}
 	
@@ -64,15 +62,10 @@ public class GameManager : MonoBehaviour {
     public void initializeGameCore()
     {
 
-        // Unnecessary, but leaving in for now.
-        shapeTrackerScript = shapeTracker.GetComponent<ShapeTracker>();
-        tokenTrackerScript = tokenTracker.GetComponent<TokenTracker>();
-        barrierTrackerScript = barrierTracker.GetComponent<BarrierTracker>();
-        portalTrackerScript = portalTracker.GetComponent<PortalTracker>();
-        platformTrackerScript = platformTracker.GetComponent<PlatformTracker>();
+       // TODO
     }
 
-    public void transferLevelToGameCore()
+    public void initializeLevelStructure()
     {
         Transform level = GameObject.Find("Level").transform;
 
@@ -83,64 +76,68 @@ public class GameManager : MonoBehaviour {
         Transform portals = level.Find("Portals");
         Transform platforms = level.Find("Platforms");
 
-
-        // Locate all level settings and level gameObjects
-
-        levelInfo = info.gameObject;
+        //tokens.gameObject.AddComponent<TokenTracker>();
+        tokenTracker = tokens.GetComponent<TokenTracker>();
 
 
-        foreach (Transform temp in shapes)
-        {
-            playerShapeGOs.Add(temp.gameObject);
-        }
 
-        foreach (Transform temp in tokens)
-        {
-            tokenGOs.Add(temp.gameObject);
-        }
+        //// Locate all level settings and level gameObjects
 
-        foreach (Transform temp in barriers)
-        {
-            barrierGOs.Add(temp.gameObject);
-        }
-
-        foreach (Transform temp in portals)
-        {
-            portalGOs.Add(temp.gameObject);
-        }
-
-        foreach (Transform temp in platforms)
-        {
-            platformGOs.Add(temp.gameObject);
-        }
+        //levelInfo = info.gameObject;
 
 
-        // Change parent for each level gameObject
+        //foreach (Transform temp in shapes)
+        //{
+        //    playerShapeGOs.Add(temp.gameObject);
+        //}
 
-        foreach (GameObject go in playerShapeGOs)
-        {
-            go.transform.SetParent(shapeTracker);
-        }
+        //foreach (Transform temp in tokens)
+        //{
+        //    tokenGOs.Add(temp.gameObject);
+        //}
 
-        foreach (GameObject go in tokenGOs)
-        {
-            go.transform.SetParent(tokenTracker);
-        }
+        //foreach (Transform temp in barriers)
+        //{
+        //    barrierGOs.Add(temp.gameObject);
+        //}
 
-        foreach (GameObject go in barrierGOs)
-        {
-            go.transform.SetParent(barrierTracker);
-        }
+        //foreach (Transform temp in portals)
+        //{
+        //    portalGOs.Add(temp.gameObject);
+        //}
 
-        foreach (GameObject go in portalGOs)
-        {
-            go.transform.SetParent(portalTracker);
-        }
+        //foreach (Transform temp in platforms)
+        //{
+        //    platformGOs.Add(temp.gameObject);
+        //}
 
-        foreach (GameObject go in platformGOs)
-        {
-            go.transform.SetParent(platformTracker);
-        }
+
+        //// Change parent for each level gameObject
+
+        //foreach (GameObject go in playerShapeGOs)
+        //{
+        //    go.transform.SetParent(shapeTracker);
+        //}
+
+        //foreach (GameObject go in tokenGOs)
+        //{
+        //    go.transform.SetParent(tokenTracker);
+        //}
+
+        //foreach (GameObject go in barrierGOs)
+        //{
+        //    go.transform.SetParent(barrierTracker);
+        //}
+
+        //foreach (GameObject go in portalGOs)
+        //{
+        //    go.transform.SetParent(portalTracker);
+        //}
+
+        //foreach (GameObject go in platformGOs)
+        //{
+        //    go.transform.SetParent(platformTracker);
+        //}
 
     }
 
@@ -168,7 +165,7 @@ public class GameManager : MonoBehaviour {
             go.GetComponent<Flip_Manager>().updateFlipManager();
         }
 
-        tokenTrackerScript.updateTracker();
+        tokenTracker.updateTracker();
 
     }
 
