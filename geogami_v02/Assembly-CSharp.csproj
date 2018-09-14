@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\_Scripts\Platform\Paint.cs" />
+    <Compile Include="Assets\_Scripts\Platform\Platform.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\AngleZone.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\Flip_180.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\Flip_Animation.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\_Scripts\Player\Flip\Ghost.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\Vert.cs" />
     <Compile Include="Assets\_Scripts\Player\Flip\VertTracker.cs" />
+    <Compile Include="Assets\_Scripts\Player\PlayerShape.cs" />
     <Compile Include="Assets\_Scripts\Player\Portals\Portal.cs" />
     <Compile Include="Assets\_Scripts\Tokens and Barriers\Barrier.cs" />
     <Compile Include="Assets\_Scripts\Tokens and Barriers\Token.cs" />

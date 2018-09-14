@@ -5,8 +5,6 @@ using UnityEngine;
 public class TokenTracker : MonoBehaviour {
 
     public List<Token> myTokens;
-
-
     bool levelComplete = false;
 
 
@@ -16,6 +14,8 @@ public class TokenTracker : MonoBehaviour {
         {
             Token childToken = child.gameObject.GetComponent<Token>();
             myTokens.Add(childToken);
+
+            childToken.setTracker(this);
         }
     }
 
@@ -34,6 +34,6 @@ public class TokenTracker : MonoBehaviour {
     public void collectToken(Token token)
     {
         myTokens.Remove(token);
-        Destroy(token);
+        Destroy(token.gameObject);
     }
 }

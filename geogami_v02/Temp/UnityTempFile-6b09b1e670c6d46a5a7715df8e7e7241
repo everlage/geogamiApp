@@ -4,6 +4,8 @@
 -langversion:4
 -out:'Temp/Assembly-CSharp.dll'
 -nostdlib
+-r:'Library/ScriptAssemblies/UnityEditor.StandardEvents.dll'
+-r:'Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/Managed/UnityEngine/UnityEngine.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/Managed/UnityEngine/UnityEngine.ARModule.dll'
@@ -63,8 +65,6 @@
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/Managed/UnityEditor.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/Managed/Unity.Locator.dll'
--r:'Library/ScriptAssemblies/UnityEditor.StandardEvents.dll'
--r:'Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity-2018.1.1f1/Unity-2018.1.1f1.app/Contents/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll'
@@ -169,6 +169,7 @@
 -define:ENABLE_VSTU
 'Assets/_Scripts/GameManager.cs'
 'Assets/_Scripts/Platform/Paint.cs'
+'Assets/_Scripts/Platform/Platform.cs'
 'Assets/_Scripts/Player/Flip/AngleZone.cs'
 'Assets/_Scripts/Player/Flip/Flip_180.cs'
 'Assets/_Scripts/Player/Flip/Flip_Animation.cs'
@@ -178,6 +179,7 @@
 'Assets/_Scripts/Player/Flip/Ghost.cs'
 'Assets/_Scripts/Player/Flip/Vert.cs'
 'Assets/_Scripts/Player/Flip/VertTracker.cs'
+'Assets/_Scripts/Player/PlayerShape.cs'
 'Assets/_Scripts/Player/Portals/Portal.cs'
 'Assets/_Scripts/Tokens and Barriers/Barrier.cs'
 'Assets/_Scripts/Tokens and Barriers/Token.cs'

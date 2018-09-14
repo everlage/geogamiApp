@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BarrierTracker : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public List<Barrier> myBarriers;
+
+    void Start () {
+        foreach (Transform child in transform)
+        {
+            Barrier childBarrier = child.gameObject.GetComponent<Barrier>();
+            myBarriers.Add(childBarrier);
+        }
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	
 }

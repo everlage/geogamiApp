@@ -47,7 +47,7 @@ public class Flip_Animation : MonoBehaviour {
 	}
 
 
-    public void flipShape(GameObject ghostToFlipTo)
+    public void flipShape(AngleZone angleZone)
     {
 
         if(rotating)
@@ -55,15 +55,16 @@ public class Flip_Animation : MonoBehaviour {
             return;
         }
 
-        AngleZone ghostAngleZoneScript = ghostToFlipTo.GetComponent<AngleZone>(); // Use this to get verts for axis of rotation
-        rotationPoint = ghostAngleZoneScript.vertMin.position;
-        rotationAxis = ghostAngleZoneScript.vertMax.position - rotationPoint;
+        if(angleZone.gameObject.CompareTag("Ghost") ) 
+        {
+            rotationPoint = angleZone.vertMin.position;
+            rotationAxis = angleZone.vertMax.position - rotationPoint;
 
-        Debug.Log("flipShape");
+            Debug.Log("flipShape");
 
 
-        StartCoroutine("rotateShape", 180);
-
+            StartCoroutine("rotateShape", 180);
+        }
     }
 
     IEnumerator rotateShape(int angle) 
@@ -76,8 +77,9 @@ public class Flip_Animation : MonoBehaviour {
             yield return null;
         }
 
-        flipCompleted();
         rotating = false;
+
+        flipCompleted();
     }
 
     public void flipCompleted()

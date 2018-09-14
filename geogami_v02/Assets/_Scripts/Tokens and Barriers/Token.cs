@@ -6,9 +6,9 @@ public class Token : MonoBehaviour {
 
     TokenTracker myTracker;
 
-    void Start()
+    public void setTracker(TokenTracker tracker)
     {
-        myTracker = transform.parent.gameObject.GetComponent<TokenTracker>();
+        myTracker = tracker;
     }
 
     void OnTriggerEnter(Collider other)

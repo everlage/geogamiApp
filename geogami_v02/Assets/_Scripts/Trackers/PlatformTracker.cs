@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlatformTracker : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public List<Platform> myPlatforms;
+
+    void Start()
+    {
+        foreach (Transform child in transform)
+        {
+            Platform childPlatform = child.gameObject.GetComponent<Platform>();
+            myPlatforms.Add(childPlatform);
+        }
+    }
 }

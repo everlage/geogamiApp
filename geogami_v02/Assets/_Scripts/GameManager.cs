@@ -7,32 +7,22 @@ public class GameManager : MonoBehaviour {
     #region Inspector variables
 
     // ---------- Level Info
-    public GameObject levelInfo;
+    public GameObject levelInfo; //TODO Not yet implemented
 
-    // ---------- Player Shapes
-    public List<GameObject> playerShapeGOs; // Objects that include angle zone information (normally ghosts)
-    public Transform shapeTracker;
-    public ShapeTracker shapeTrackerScript;
-    public GameObject selectedPlayerShapeGO;
-    public Flip_Manager selectedPlayerShapeFMScript;
+    // ---------- Shapes
+    public ShapeTracker shapeTracker;
 
     // ---------- Tokens
     public TokenTracker tokenTracker;
 
     // ---------- Barriers
-    public List<GameObject> barrierGOs; 
-    public Transform barrierTracker;
-    public BarrierTracker barrierTrackerScript;
+    public BarrierTracker barrierTracker;
 
     // ---------- Portals
-    public List<GameObject> portalGOs;
-    public Transform portalTracker;
-    public PortalTracker portalTrackerScript;
+    public PortalTracker portalTracker;
 
     // ---------- Platforms
-    public List<GameObject> platformGOs; 
-    public Transform platformTracker;
-    public PlatformTracker platformTrackerScript;
+    public PlatformTracker platformTracker;
 
     #endregion
 
@@ -44,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
-    // Use this for initialization
+
     void Start () {
         //initializeGameCore();
         initializeLevelStructure();
@@ -68,6 +58,8 @@ public class GameManager : MonoBehaviour {
     public void initializeLevelStructure()
     {
         Transform level = GameObject.Find("Level").transform;
+        levelInfo = level.gameObject; //TODO Not yet implemented
+
 
         Transform info = level.Find("Level Info");
         Transform shapes = level.Find("Shapes");
@@ -76,80 +68,19 @@ public class GameManager : MonoBehaviour {
         Transform portals = level.Find("Portals");
         Transform platforms = level.Find("Platforms");
 
-        //tokens.gameObject.AddComponent<TokenTracker>();
+        shapeTracker = shapes.GetComponent<ShapeTracker>();
         tokenTracker = tokens.GetComponent<TokenTracker>();
+        barrierTracker = barriers.GetComponent<BarrierTracker>();
+        portalTracker = portals.GetComponent<PortalTracker>();
+        platformTracker = platforms.GetComponent<PlatformTracker>();
 
-
-
-        //// Locate all level settings and level gameObjects
-
-        //levelInfo = info.gameObject;
-
-
-        //foreach (Transform temp in shapes)
-        //{
-        //    playerShapeGOs.Add(temp.gameObject);
-        //}
-
-        //foreach (Transform temp in tokens)
-        //{
-        //    tokenGOs.Add(temp.gameObject);
-        //}
-
-        //foreach (Transform temp in barriers)
-        //{
-        //    barrierGOs.Add(temp.gameObject);
-        //}
-
-        //foreach (Transform temp in portals)
-        //{
-        //    portalGOs.Add(temp.gameObject);
-        //}
-
-        //foreach (Transform temp in platforms)
-        //{
-        //    platformGOs.Add(temp.gameObject);
-        //}
-
-
-        //// Change parent for each level gameObject
-
-        //foreach (GameObject go in playerShapeGOs)
-        //{
-        //    go.transform.SetParent(shapeTracker);
-        //}
-
-        //foreach (GameObject go in tokenGOs)
-        //{
-        //    go.transform.SetParent(tokenTracker);
-        //}
-
-        //foreach (GameObject go in barrierGOs)
-        //{
-        //    go.transform.SetParent(barrierTracker);
-        //}
-
-        //foreach (GameObject go in portalGOs)
-        //{
-        //    go.transform.SetParent(portalTracker);
-        //}
-
-        //foreach (GameObject go in platformGOs)
-        //{
-        //    go.transform.SetParent(platformTracker);
-        //}
 
     }
 
     public void initializeAllLevelObjects()
     {
 
-        // Shapes
-        foreach (GameObject go in playerShapeGOs)
-        {
-            go.GetComponent<Flip_Manager>().initializeAll();
-        }
-
+      
 
     }
 
@@ -160,10 +91,9 @@ public class GameManager : MonoBehaviour {
 
     public void mainGameLoop()
     {
-        foreach (GameObject go in playerShapeGOs)
-        {
-            go.GetComponent<Flip_Manager>().updateFlipManager();
-        }
+        // Check for mouse input
+
+        shapeTracker.updateTracker();
 
         tokenTracker.updateTracker();
 
